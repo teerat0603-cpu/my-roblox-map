@@ -3,159 +3,237 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roblox Map | Showcase & Activities</title>
+    <title>POLICE DEPARTMENT | Roblox Map</title>
     <style>
-        /* ตั้งค่าพื้นฐานและ Smooth Scroll */
-        html {
-            scroll-behavior: smooth;
-        }
+        /* ตั้งค่าพื้นฐาน */
+        html { scroll-behavior: smooth; }
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #1164d1;
+            font-family: 'Arial Black', Gadget, sans-serif;
+            background-color: #0a0c10;
             color: #ffffff;
             margin: 0;
-            line-height: 1.6;
+            overflow-x: hidden;
         }
 
-        /* Navigation Menu */
+        /* เอฟเฟกต์ไฟไซเรนพื้นหลัง */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: radial-gradient(circle at 0% 0%, rgba(0, 71, 255, 0.1) 0%, transparent 50%),
+                        radial-gradient(circle at 100% 0%, rgba(255, 0, 0, 0.1) 0%, transparent 50%);
+            z-index: -1;
+            animation: siren-light 4s infinite alternate;
+        }
+
+        @keyframes siren-light {
+            0% { opacity: 0.3; }
+            100% { opacity: 0.7; }
+        }
+
+        /* Navigation */
         nav {
             position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(30, 30, 30, 0.9);
+            top: 0; width: 100%;
+            background: rgba(0, 20, 50, 0.95);
             padding: 15px 0;
             display: flex;
             justify-content: center;
             gap: 20px;
             z-index: 1000;
-            border-bottom: 1px solid #333;
+            border-bottom: 3px solid #0047ff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.5);
         }
         nav a {
             color: #fff;
             text-decoration: none;
-            font-weight: bold;
             font-size: 14px;
+            letter-spacing: 1px;
             transition: 0.3s;
+            text-transform: uppercase;
         }
-        nav a:hover {
-            color: #00a2ff;
-        }
+        nav a:hover { color: #ff0000; }
 
-        /* ส่วนประกอบหลัก (Sections) */
-        section {
-            padding: 100px 20px;
-            max-width: 1000px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
+        /* Hero Section */
         .hero {
-            background: linear-gradient(rgba(0,0,0,0.6), rgba(18,18,18,1)), url('https://via.placeholder.com/1200x600/1e1e1e/00a2ff?text=Your+Map+Background');
-            background-size: cover;
-            background-position: center;
-            min-height: 80vh;
+            height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            text-align: center;
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://images.unsplash.com/photo-1517486808906-6ca8b3f04846?auto=format&fit=crop&w=1200&q=80'); /* รูปพื้นหลังแนวเท่ๆ */
+            background-size: cover;
+            background-position: center;
+            padding: 0 20px;
         }
 
-        h1 { font-size: 3rem; color: #00a2ff; margin-bottom: 10px; }
-        h2 { color: #00a2ff; border-bottom: 2px solid #00a2ff; display: inline-block; padding-bottom: 5px; margin-bottom: 30px; }
+        .hero h1 {
+            font-size: 4rem;
+            margin: 0;
+            text-shadow: 0 0 20px #0047ff;
+            letter-spacing: 5px;
+            animation: pulse-blue 2s infinite;
+        }
 
-        /* ปุ่มต่างๆ */
+        @keyframes pulse-blue {
+            0% { text-shadow: 0 0 10px #0047ff; }
+            50% { text-shadow: 0 0 30px #0047ff, 0 0 40px #0047ff; }
+            100% { text-shadow: 0 0 10px #0047ff; }
+        }
+
+        /* ปุ่มกดดีไซน์สวยงาม */
         .btn {
-            padding: 12px 30px;
+            position: relative;
+            padding: 18px 40px;
+            margin: 15px;
             border: none;
-            border-radius: 50px;
+            border-radius: 5px;
             font-weight: bold;
+            text-transform: uppercase;
             cursor: pointer;
             transition: 0.3s;
             text-decoration: none;
             display: inline-block;
-            margin: 10px;
+            overflow: hidden;
+            letter-spacing: 2px;
         }
-        .btn-play { background-color: #0084ff; color: white; font-size: 1.2rem; }
-        .btn-bug { background-color: #ff4d4d; color: white; }
-        .btn-contact { background-color: #333; color: white; border: 1px solid #444; }
-        .btn:hover { transform: scale(1.05); filter: brightness(1.1); }
+
+        /* อนิเมชั่นปุ่มอยู่เฉยๆ (Floating) */
+        .btn-play {
+            background: #0047ff;
+            color: white;
+            font-size: 1.5rem;
+            box-shadow: 0 0 20px rgba(0, 71, 255, 0.5);
+            animation: float 3s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .btn-bug { background: #ff0000; color: white; }
+        .btn-contact { background: #1a1a1a; color: white; border: 1px solid #333; }
+
+        /* อนิเมชั่นเวลากด (Active) */
+        .btn:active {
+            transform: scale(0.9);
+            filter: brightness(0.8);
+        }
+
+        /* อนิเมชั่น Hover สวยๆ */
+        .btn::before {
+            content: '';
+            position: absolute;
+            top: 0; left: -100%;
+            width: 100%; height: 100%;
+            background: linear-gradient(120deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: 0.5s;
+        }
+        .btn:hover::before { left: 100%; }
 
         /* Gallery ส่วนกิจกรรม */
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 50px;
+            color: #0047ff;
+            text-transform: uppercase;
+        }
+
         .gallery {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 20px;
-            margin-top: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 50px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
         }
-        .gallery-item {
-            background: #1e1e1e;
-            border-radius: 15px;
-            overflow: hidden;
-            transition: 0.3s;
-            border: 1px solid #333;
-        }
-        .gallery-item:hover { transform: translateY(-10px); border-color: #00a2ff; }
-        .gallery-item img { width: 100%; height: 200px; object-fit: cover; }
-        .gallery-item p { padding: 15px; margin: 0; font-size: 0.9rem; color: #bbb; }
 
-        /* Footer */
-        footer {
-            padding: 40px;
-            background: #0a0a0a;
-            color: #666;
-            font-size: 12px;
+        .gallery-item {
+            background: #111;
+            border-radius: 10px;
+            border: 2px solid #222;
+            transition: 0.4s;
+            position: relative;
+            overflow: hidden;
         }
+
+        .gallery-item:hover {
+            border-color: #0047ff;
+            transform: scale(1.03);
+            box-shadow: 0 0 30px rgba(0, 71, 255, 0.3);
+        }
+
+        .gallery-item img { width: 100%; height: 250px; object-fit: cover; }
+        .gallery-item .desc { padding: 20px; text-align: left; }
+
+        /* Responsive สำหรับมือถือ */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .btn { width: 80%; padding: 15px; margin: 10px auto; }
+            nav { gap: 10px; }
+            nav a { font-size: 12px; }
+        }
+
+        section { padding: 100px 0; text-align: center; }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="#home">หน้าแรก</a>
-        <a href="#gallery">กิจกรรม</a>
-        <a href="#contact">ติดต่อ/รายงานบัค</a>
+        <a href="#home">HQ</a>
+        <a href="#activities">ภารกิจ</a>
+        <a href="#contact">แจ้งเหตุ</a>
     </nav>
 
-    <!-- หน้าแรก (Hero Section) -->
+    <!-- Home Section -->
     <section id="home" class="hero">
-        <h1>[👮‍♂️] จำลองเป็นผู้พิทักษ์สันติราษฎร์</h1>
-        <p style="max-width: 600px; font-size: 1.1rem;">สัมผัสประสบการณ์การจำลองเป็นตำรวจไทยได้แล้ววันนี้ที่ Roblox แมพ [👮‍♂️] จำลองเป็นผู้พิทักษ์สันติราษฎร์</p>
-        <a href="https://www.roblox.com/share?code=d1ac59ee74916142be1429e3f8f95875&type=ExperienceDetails&stamp=1777621726669" class="btn btn-play" target="_blank">▶ เริ่มเล่นเกมเลย</a>
+        <h1 style="color: #fff;">PD UNIT <span style="color: #ff0000;">OFFICER</span></h1>
+        <p style="font-size: 1.2rem; margin-top: 20px;">ยินดีต้อนรับสู่กองบัญชาการตำรวจกลาง เข้าร่วมปฏิบัติหน้าที่ได้แล้ววันนี้</p>
+        <a href="https://www.roblox.com/games/YOUR_GAME_ID" class="btn btn-play" target="_blank">▶ ประจำการ (ENTER GAME)</a>
     </section>
 
-    <!-- ส่วนกิจกรรม (Gallery Section) -->
-    <section id="gallery">
-        <h2>กิจกรรมและภาพบรรยากาศ</h2>
+    <!-- Gallery Section -->
+    <section id="activities" style="background: #050505;">
+        <h2 class="section-title">แฟ้มภาพกิจกรรมประจำสัปดาห์</h2>
         <div class="gallery">
-            <!-- รูปที่ 1 -->
             <div class="gallery-item">
-                <img src="https://media.discordapp.net/attachments/1384893780758499348/1499682071868870726/Thailand_2.png?ex=69f5af44&is=69f45dc4&hm=4bd766eed79e571156689f399e0518afd9efd12f94f5aa53556b57e9777fa208&=&format=webp&quality=lossless&width=1396&height=864" alt="Event 1">
-                <p><b>จำลองเป็นตำรวจในแมพนนี้ได้อะไร?:</b> ได้สัมผัสประสบการณ์การเป็นตำรวจแบบจำลองในเกม roblox !</p>
+                <img src="https://via.placeholder.com/400x300/001432/ffffff?text=Tactical+Training" alt="Training">
+                <div class="desc">
+                    <h3 style="color:#0047ff;">ฝึกซ้อมยุทธวิธี</h3>
+                    <p style="color:#888;">ภาพบรรยากาศการฝึกซ้อมร่วมกันของหน่วย S.W.A.T เมื่อวานนี้</p>
+                </div>
             </div>
-            <!-- รูปที่ 2 -->
             <div class="gallery-item">
-                <img src="https://media.discordapp.net/attachments/1384893780758499348/1499682072388702209/Thailand_1.png?ex=69f5af44&is=69f45dc4&hm=848c2b2e685fc7f60f193bd003b873602625b56aa52174259aff4d13097631bc&=&format=webp&quality=lossless&width=1396&height=864" alt="Event 2">
-                <p><b>มีความสมจริง PvP:</b> มีความสมจริงในการฝึกหรือพิธีต่างๆภายในแมพ</p>
+                <img src="https://via.placeholder.com/400x300/320000/ffffff?text=Night+Patrol" alt="Patrol">
+                <div class="desc">
+                    <h3 style="color:#ff0000;">สายตรวจกลางคืน</h3>
+                    <p style="color:#888;">ขอบคุณเจ้าหน้าที่ทุกท่านที่ดูแลความสงบเรียบร้อยตลอด 24 ชม.</p>
+                </div>
             </div>
-            <!-- รูปที่ 3 -->
             <div class="gallery-item">
-                <img src="https://media.discordapp.net/attachments/1384893780758499348/1499682072850333777/Thailand_.png?ex=69f5af44&is=69f45dc4&hm=6e3d6d8d46abb351afd6d753c1e153dda7ae2313e4357ac496d2cee877a4402a&=&format=webp&quality=lossless&width=1396&height=864" alt="Event 3">
-                <p><b>บรรยากาศภายในแมพ:</b> มีจุดถ่ายภาพสวยๆ ไม่ควรภาพ</p>
+                <img src="https://via.placeholder.com/400x300/111111/ffffff?text=New+Vehicles" alt="Cars">
+                <div class="desc">
+                    <h3 style="color:#fff;">ยานพาหนะชุดใหม่</h3>
+                    <p style="color:#888;">เปิดตัวรถตำรวจรุ่นใหม่ล่าสุด เตรียมเข้าประจำการเร็วๆ นี้</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- ส่วนติดต่อ (Contact Section) -->
+    <!-- Contact Section -->
     <section id="contact">
-        <h2>ช่วยเหลือและติดต่อสอบถาม</h2>
-        <p>หากพบปัญหาในการเล่น หรือมีข้อเสนอแนะ สามารถแจ้งเราได้ทันที</p>
-        <div style="margin-top: 20px;">
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeSnO5xdDiSfF2fsxE1pa8tExu5OFUdHLizi8xkZXVVM2zqQg/viewform?usp=header">⚠️ รายงานบัค</a>
-            <a href="https://discord.gg/DYcmhSjJ">✉️ ติดต่อทีมงานและติดตามข่าวสารต่างๆ</a>
+        <h2 class="section-title">ศูนย์รับเรื่องร้องเรียน</h2>
+        <p>หากพบเห็นบัคหรือต้องการความช่วยเหลือ โปรดกดปุ่มด้านล่างเพื่อติดต่อเจ้าหน้าที่</p>
+        <div style="margin-top: 40px;">
+            <a href="https://forms.gle/your-form-link" class="btn btn-bug">🔴 รายงานบัค (REPORT)</a>
+            <a href="mailto:support@yourdomain.com" class="btn btn-contact">✉️ ติดต่อหน่วยงาน (CONTACT)</a>
         </div>
     </section>
 
-    <footer>
-       แมพ [👮‍♂️] จำลองเป็นผู้พิทักษ์สันติราษฎร์ เป็นแมพจำลองบทบาทเท่านั้นไม่มีการปลอมแปลงใดๆ
+    <footer style="padding: 50px; text-align: center; border-top: 1px solid #222; color: #444;">
+        © 2026 POLICE DEPARTMENT SYSTEM | Not affiliated with Roblox Corp.
     </footer>
 
 </body>
