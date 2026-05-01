@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Roblox Map Showcase | Dark Edition</title>
+    <style>
+        /* ตั้งค่าพื้นฐาน */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #121212; /* สีพื้นหลังมืด */
+            color: #ffffff;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        /* คอนเทนเนอร์หลัก */
+        .container {
+            background-color: #1e1e1e;
+            width: 90%;
+            max-width: 600px;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            text-align: center;
+        }
+
+        .map-thumbnail {
+            width: 100%;
+            height: 250px;
+            background-color: #333;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .map-thumbnail img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        h1 {
+            color: #00a2ff; /* สีฟ้าสไตล์ Roblox */
+            margin-bottom: 10px;
+        }
+
+        p {
+            color: #b0b0b0;
+            line-height: 1.6;
+            margin-bottom: 25px;
+        }
+
+        /* ส่วนของปุ่ม */
+        .button-group {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: transform 0.2s, background-color 0.2s;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .btn-play {
+            background-color: #0084ff;
+            color: white;
+        }
+
+        .btn-bug {
+            background-color: #ff4d4d;
+            color: white;
+        }
+
+        .btn-contact {
+            background-color: #333;
+            color: white;
+            border: 1px solid #444;
+        }
+
+        .btn-contact:hover {
+            background-color: #444;
+        }
+
+        /* Footer */
+        .footer {
+            margin-top: 30px;
+            font-size: 12px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- รูปภาพแมพ -->
+        <div class="map-thumbnail">
+            <!-- เปลี่ยน URL รูปภาพตรงนี้ -->
+            <img src="https://via.placeholder.com/600x250/333/fff?text=Your+Roblox+Map+Thumbnail" alt="Map Thumbnail">
+        </div>
+
+        <h1>ชื่อแมพของคุณ</h1>
+        <p>ยินดีต้อนรับสู่แมพ [ชื่อแมพ]! ผจญภัยไปในโลกที่คุณไม่เคยเห็นมาก่อน สะสมไอเทม อัปเกรดตัวละคร และสนุกไปกับเพื่อนๆ ได้แล้ววันนี้บน Roblox!</p>
+
+        <div class="button-group">
+            <!-- ปุ่มเล่นเกม -->
+            <a href="https://www.roblox.com/games/YOUR_GAME_ID" class="btn btn-play" target="_blank">▶ เข้าเล่นเกม</a>
+            
+            <!-- ปุ่มรายงานบัค (ลิงก์ไปยัง Google Form หรือ Discord) -->
+            <a href="https://forms.gle/your-form-link" class="btn btn-bug">⚠️ รายงานบัค (Report Bug)</a>
+            
+            <!-- ปุ่มติดต่อทีมงาน -->
+            <a href="mailto:support@yourdomain.com" class="btn btn-contact">✉️ ติดต่อทีมงาน</a>
+        </div>
+
+        <div class="footer">
+            © 2024 Your Studio Name. Not affiliated with Roblox Corporation.
+        </div>
+    </div>
+
+</body>
+</html>
