@@ -3,137 +3,160 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Roblox Map Showcase | Dark Edition</title>
+    <title>Roblox Map | Showcase & Activities</title>
     <style>
-        /* ตั้งค่าพื้นฐาน */
+        /* ตั้งค่าพื้นฐานและ Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #121212; /* สีพื้นหลังมืด */
+            background-color: #121212;
             color: #ffffff;
             margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
+            line-height: 1.6;
         }
 
-        /* คอนเทนเนอร์หลัก */
-        .container {
-            background-color: #1e1e1e;
-            width: 90%;
-            max-width: 600px;
-            padding: 30px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        /* Navigation Menu */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(30, 30, 30, 0.9);
+            padding: 15px 0;
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            z-index: 1000;
+            border-bottom: 1px solid #333;
+        }
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+        nav a:hover {
+            color: #00a2ff;
+        }
+
+        /* ส่วนประกอบหลัก (Sections) */
+        section {
+            padding: 100px 20px;
+            max-width: 1000px;
+            margin: 0 auto;
             text-align: center;
         }
 
-        .map-thumbnail {
-            width: 100%;
-            height: 250px;
-            background-color: #333;
-            border-radius: 10px;
-            margin-bottom: 20px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .map-thumbnail img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        h1 {
-            color: #00a2ff; /* สีฟ้าสไตล์ Roblox */
-            margin-bottom: 10px;
-        }
-
-        p {
-            color: #b0b0b0;
-            line-height: 1.6;
-            margin-bottom: 25px;
-        }
-
-        /* ส่วนของปุ่ม */
-        .button-group {
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(18,18,18,1)), url('https://via.placeholder.com/1200x600/1e1e1e/00a2ff?text=Your+Map+Background');
+            background-size: cover;
+            background-position: center;
+            min-height: 80vh;
             display: flex;
             flex-direction: column;
-            gap: 15px;
+            justify-content: center;
+            align-items: center;
         }
 
+        h1 { font-size: 3rem; color: #00a2ff; margin-bottom: 10px; }
+        h2 { color: #00a2ff; border-bottom: 2px solid #00a2ff; display: inline-block; padding-bottom: 5px; margin-bottom: 30px; }
+
+        /* ปุ่มต่างๆ */
         .btn {
-            padding: 12px 25px;
+            padding: 12px 30px;
             border: none;
-            border-radius: 8px;
+            border-radius: 50px;
             font-weight: bold;
             cursor: pointer;
-            transition: transform 0.2s, background-color 0.2s;
+            transition: 0.3s;
             text-decoration: none;
-            font-size: 16px;
+            display: inline-block;
+            margin: 10px;
         }
+        .btn-play { background-color: #0084ff; color: white; font-size: 1.2rem; }
+        .btn-bug { background-color: #ff4d4d; color: white; }
+        .btn-contact { background-color: #333; color: white; border: 1px solid #444; }
+        .btn:hover { transform: scale(1.05); filter: brightness(1.1); }
 
-        .btn:hover {
-            transform: translateY(-2px);
+        /* Gallery ส่วนกิจกรรม */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
         }
-
-        .btn-play {
-            background-color: #0084ff;
-            color: white;
+        .gallery-item {
+            background: #1e1e1e;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: 0.3s;
+            border: 1px solid #333;
         }
-
-        .btn-bug {
-            background-color: #ff4d4d;
-            color: white;
-        }
-
-        .btn-contact {
-            background-color: #333;
-            color: white;
-            border: 1px solid #444;
-        }
-
-        .btn-contact:hover {
-            background-color: #444;
-        }
+        .gallery-item:hover { transform: translateY(-10px); border-color: #00a2ff; }
+        .gallery-item img { width: 100%; height: 200px; object-fit: cover; }
+        .gallery-item p { padding: 15px; margin: 0; font-size: 0.9rem; color: #bbb; }
 
         /* Footer */
-        .footer {
-            margin-top: 30px;
-            font-size: 12px;
+        footer {
+            padding: 40px;
+            background: #0a0a0a;
             color: #666;
+            font-size: 12px;
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <!-- รูปภาพแมพ -->
-        <div class="map-thumbnail">
-            <!-- เปลี่ยน URL รูปภาพตรงนี้ -->
-            <img src="https://media.discordapp.net/attachments/1384893780758499348/1499674753298989077/2.png?ex=69f5a873&is=69f456f3&hm=28a50ab64fb1153e3cfa1dee348ab1999df7f4e7d71d433796437105a7f274d3&=&format=webp&quality=lossless&width=968&height=968" alt="Map Thumbnail">
+    <nav>
+        <a href="#home">หน้าแรก</a>
+        <a href="#gallery">กิจกรรม</a>
+        <a href="#contact">ติดต่อ/รายงานบัค</a>
+    </nav>
+
+    <!-- หน้าแรก (Hero Section) -->
+    <section id="home" class="hero">
+        <h1>ชื่อแมพของคุณ</h1>
+        <p style="max-width: 600px; font-size: 1.1rem;">สัมผัสประสบการณ์สุดพิเศษในโลก Roblox ที่เราสร้างขึ้น สนุกไปกับภารกิจและกิจกรรมมากมาย!</p>
+        <a href="https://www.roblox.com/games/YOUR_GAME_ID" class="btn btn-play" target="_blank">▶ เริ่มเล่นเกมเลย</a>
+    </section>
+
+    <!-- ส่วนกิจกรรม (Gallery Section) -->
+    <section id="gallery">
+        <h2>กิจกรรมและภาพบรรยากาศ</h2>
+        <div class="gallery">
+            <!-- รูปที่ 1 -->
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/400x300/333/00a2ff?text=Activity+1" alt="Event 1">
+                <p><b>กิจกรรมแจกของรางวัล:</b> ร่วมสนุกทุกวันเสาร์เพื่อลุ้นรับไอเทมลิมิเต็ด!</p>
+            </div>
+            <!-- รูปที่ 2 -->
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/400x300/333/00a2ff?text=Activity+2" alt="Event 2">
+                <p><b>โหมดใหม่ PvP:</b> ประลองฝีมือกับเพื่อนๆ ในสนามประลองสุดเดือด</p>
+            </div>
+            <!-- รูปที่ 3 -->
+            <div class="gallery-item">
+                <img src="https://via.placeholder.com/400x300/333/00a2ff?text=Activity+3" alt="Event 3">
+                <p><b>บรรยากาศภายในแมพ:</b> จุดถ่ายรูปสวยๆ ที่คุณไม่ควรพลาด</p>
+            </div>
         </div>
+    </section>
 
-        <h1>[👮‍♂️] จำลองเป็นผู้พิทักษ์สันติราษฎร์</h1>
-        <p>ยินดีต้อนรับสู่แมพ [👮‍♂️ จำลองเป็นผู้พิทักษ์สันติราษฎร์]! แมพจำลองการเป็นตำรวจไทยอย่างสนุกสนานมีหน้าที่ไห้คุณได้ทำมากมายเล่นบน Roblox! ได้แล้ววันนี้</p>
-
-        <div class="button-group">
-            <!-- ปุ่มเล่นเกม -->
-            <a href="https://www.roblox.com/share?code=d1ac59ee74916142be1429e3f8f95875&type=ExperienceDetails&stamp=1777620673944" class="btn btn-play" target="_blank">▶ เข้าเล่นเกม</a>
-            
-            <!-- ปุ่มรายงานบัค (ลิงก์ไปยัง Google Form หรือ Discord) -->
-            <a href="https://docs.google.com/forms/d/e/1FAIpQLSeSnO5xdDiSfF2fsxE1pa8tExu5OFUdHLizi8xkZXVVM2zqQg/viewform?usp=publish-editor">⚠️ รายงานบัค (Report Bug)</a>
-            
-            <!-- ปุ่มติดต่อทีมงาน -->
+    <!-- ส่วนติดต่อ (Contact Section) -->
+    <section id="contact">
+        <h2>ช่วยเหลือและติดต่อสอบถาม</h2>
+        <p>หากพบปัญหาในการเล่น หรือมีข้อเสนอแนะ สามารถแจ้งเราได้ทันที</p>
+        <div style="margin-top: 20px;">
+            <a href="https://forms.gle/your-form-link" class="btn btn-bug">⚠️ รายงานบัค</a>
             <a href="mailto:support@yourdomain.com" class="btn btn-contact">✉️ ติดต่อทีมงาน</a>
         </div>
+    </section>
 
-        <div class="footer">
-            © 2024 Your Studio Name. Not affiliated with Roblox Corporation.
-        </div>
-    </div>
+    <footer>
+        © 2026 Your Studio Name. ลิขสิทธิ์ถูกต้องตามกฎหมาย | Not affiliated with Roblox Corporation.
+    </footer>
 
 </body>
 </html>
